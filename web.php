@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FavoritoController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,14 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 Route::view('login', 'sesion.login')->name('login')->middleware('guest');
-Route::post('login', [UsuarioController::class, 'login'])->name('user.login');
-Route::post('logout',[UsuarioController::class, 'logout'])->name('user.logout');
-Route::view('registrer', 'sesion.registrer')->name('regitrer')->middleware('guest');
-Route::post('registrer', [UsuarioController::class, 'registrer'])->name('user.registrer');
+Route::view('registrer', 'sesion.registrer')->name('registrer')->middleware('guest');
+Route::controller(UsuarioController::class)->group(function () {
+    Route::post('login', 'login')->name('user.login');
+    Route::post('logout', 'logout')->name('user.logout');
+    Route::post('registrer', 'registrer')->name('user.registrer');
+});
+Route::controller(FavoritoController::class)->group(function(){
+    Route::get('favoritos', 'show')->name('favorito.show')->middleware('auth');
+    
+});
+Route::view('consultar', 'mostrar.consultar')->name('consulta');

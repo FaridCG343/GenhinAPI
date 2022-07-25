@@ -3,31 +3,36 @@
 @section('titulo','Login')
     
 @section('contenido')
-    Hola bienvenido a login =D
     @error('error')
-    <br>
+        <br>
         {{$message}}
         <br>
     @enderror
-    <form action="{{ route('user.login') }}" method="POST">
+    <form action="{{ route('user.login') }}" method="POST" class="form">
         @csrf
-        <label >
-        <input class="form-control" autofocus required type="email" name="email" placeholder="Correo:" value="{{old('email')}}">
-        </label>
-        <br>
-        @error('email') <small>{{ $message }}</small> <br> @enderror
+        <h2 class="titulo">Iniciar sesion</h2>
+        <p class="parrafo">¿Aún no tienes una cuenta?<a href="{{ route('user.registrer') }}" class="link">Haz click aquí</a></p>
+        <div class="form-container">
+            <div class="form-group">
+                <input id="email" class="form-input" autofocus required type="email" name="email" value="{{old('email')}}" placeholder=" ">
+                <label for="email" class="form-label">E-mail:</label>
+                <span class="form-line"></span>
+                @error('email') <small>{{ $message }}</small> <br> @enderror
+                
+            </div>
+            <div class="form-group">
+                <input class="form-input" id="password" type="password" name="password" required placeholder=" ">
+                <label for="password" class="form-label">Password</label>
+                <span class="form-line"></span>
+                @error('password') <small>{{ $message }}</small><br>  @enderror
+                
+            </div>
+            <div class="form-group">
+                <input id="reme" type="checkbox" name="remember" >
+                <label for="reme" class="">Recuerda mi sesion</label>
+            </div>
+            <input type="submit" class="form-submit" value="Entrar">
+        </div>
         
-        <label >
-            <input type="password" name="password" required placeholder="Contraseña: ">
-        </label>
-        <br>
-        @error('password') <small>{{ $message }}</small><br>  @enderror
-        
-        <label >
-            <input type="checkbox" name="remember">
-            Recuerda mi sesion
-        </label>
-        <br>
-        <button type="submit">Ingresar</button>
     </form>
 @endsection
