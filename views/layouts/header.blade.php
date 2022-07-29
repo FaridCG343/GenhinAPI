@@ -1,6 +1,6 @@
 <header>
     <input type="checkbox" id="btn-menu">
-    <label for="btn-menu"><img src="img/menu.png" width="30px"/></label>
+    <label for="btn-menu"><img src="{{asset('img/menu.png')}}" width="30px"/></label>
     <nav class="menu">
         <ul>
             <li><a href="{{ route('home') }}" class="{{request()->routeIs('home') ? 'active' : ''}}">Inicio</a></li>

@@ -1,10 +1,16 @@
 body {
     margin: 0;
+    height: 100vh;
     font-family: sans-serif;
-    background-color: #434343;
+    background: #757F9A;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #D7DDE8, #757F9A);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #D7DDE8, #757F9A);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.form{
+.form {
     background: #fff;
     margin: auto;
     width: 90%;
@@ -13,28 +19,34 @@ body {
     border-radius: 10px;
     box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
 }
-.titutlo{
+
+.titutlo {
     font-size: 2rem;
     margin-bottom: .5em;
 }
-.parrafo{
+
+.parrafo {
     font-weight: 300;
 }
-.link{
+
+.link {
     font-weight: 400;
     color: #000000;
 }
-.form-container{
+
+.form-container {
     margin-top: 3em;
     display: grid;
     gap: 2.5em;
 }
-.form-group{
+
+.form-group {
     position: relative;
     --color: #5757577e;
 
 }
-.form-input{
+
+.form-input {
     width: 100%;
     background: none;
     color: #706c6c;
@@ -47,7 +59,7 @@ body {
 
 }
 
-.form-submit{
+.form-submit {
     background: #000000;
     color: #fff;
     font-family: sans-serif;
@@ -59,7 +71,7 @@ body {
 
 }
 
-.form-line{
+.form-line {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -71,19 +83,19 @@ body {
     transition: transform .4s;
 }
 
-.form-input:focus ~ .form-line,
-.form-input:not(:placeholder-shown) ~ .form-line{
+.form-input:focus~.form-line,
+.form-input:not(:placeholder-shown)~.form-line {
     transform: scale(1);
 }
 
-.form-input:focus + .form-label,
-.form-input:not(:placeholder-shown) + .form-label{
+.form-input:focus+.form-label,
+.form-input:not(:placeholder-shown)+.form-label {
     transform: translateY(-12px) scale(.7);
     transform-origin: left top;
     color: #3866f2;
 }
 
-.form-label{
+.form-label {
     color: var(--color);
     cursor: pointer;
     position: absolute;
